@@ -13,7 +13,6 @@ resilience4j:
         waitDurationInOpenState: 5s
         failureRateThreshold: 50
         eventConsumerBufferSize: 10
-
   ratelimiter:
     instances:
       backendA:
@@ -26,3 +25,16 @@ resilience4j:
         limitForPeriod: 5
         limitRefreshPeriod: 10s
         timeoutDuration: 3s
+
+management:
+  health:
+    circuitbreakers:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include:
+          - '*'
+  endpoint:
+    health:
+      show-details: always
