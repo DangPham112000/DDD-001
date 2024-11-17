@@ -1,5 +1,33 @@
 server:
-  port: 8081
+  port: 1122
+
+spring:
+  application:
+    name: ddd.com
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: true
+  jackson:
+    serialization:
+      indent-output: true
+  data:
+    redis:
+      host: 127.0.0.1
+      port: 6319
+      password: ""
+      lettuce:
+        pool:
+          max-active: 8 # Maximum active connections
+          max-idle: 8
+          min-idle: 0
+          max-wait: -1ms # Maximum wait time to get a connection from the pool (use -1 for no limit)
+      connect-timeout: 30000 # (in millisecond)
 
 resilience4j:
   circuitbreaker:
